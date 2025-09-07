@@ -1,19 +1,7 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
-import Header from "@/components/Header"; // 🔥 CAMBIAR DE Navbar A Header
+import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff2",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff2",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
 
 export const metadata: Metadata = {
   title: "Danilo's Burger - Restaurante Gourmet",
@@ -73,19 +61,18 @@ export default function RootLayout({
         <meta name="theme-color" content="#f97316" />
 
         {/* Apple Touch Icons */}
-        <link rel="apple-touch-icon" href="/icons/icon-152x152.png" />
-        <link rel="apple-touch-icon" sizes="152x152" href="/icons/icon-152x152.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-192x192.png" />
+        <link rel="apple-touch-icon" href="/icon-512x512.png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="/icon-512x512.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/icon-512x512.png" />
 
         {/* Favicon */}
-        <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/icons/icon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/icon-512x512.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/icon-512x512.png" />
         <link rel="manifest" href="/manifest.json" />
-        <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#f97316" />
         <link rel="shortcut icon" href="/favicon.ico" />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <Header /> {/* 🔥 CAMBIAR DE <Navbar /> A <Header /> */}
+      <body className="antialiased">
+        <Header />
         {children}
         <Footer />
       </body>

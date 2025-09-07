@@ -1,3 +1,4 @@
+'use client'
 import InstallPWA from '@/components/InstallPWA'
 
 export default function Home() {
