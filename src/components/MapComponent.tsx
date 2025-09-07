@@ -49,13 +49,6 @@ export default function MapComponent({ lat, lng, name, address }: MapComponentPr
                 <p className="text-gray-600 mb-4">{address}</p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                    <button
-                        onClick={handleGetDirections}
-                        className="flex items-center justify-center space-x-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-2 rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all text-sm font-medium"
-                    >
-                        <span>🧭</span>
-                        <span>Cómo llegar</span>
-                    </button>
 
                     <button
                         onClick={handleOpenInGoogleMaps}
