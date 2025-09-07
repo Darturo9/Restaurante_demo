@@ -1,8 +1,12 @@
 'use client'
 
 import InstallPWA from '@/components/InstallPWA'
-import FeaturedItems from '@/components/FeaturedItems'  // 🔥 CAMBIAR A SOLO DESTACADOS
+import FeaturedItems from '@/components/FeaturedItems'
 import { trackWhatsAppClick } from '@/lib/gtag'
+import { Suspense } from 'react'
+
+// 🔥 FORZAR RENDERIZADO DINÁMICO
+export const dynamic = 'force-dynamic'
 
 export default function Home() {
   const handleWhatsAppClick = () => {
@@ -21,7 +25,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen">
-      {/* Hero Section con imagen de fondo */}
+      {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div
           className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0"
@@ -54,8 +58,24 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 🔥 SOLO ESPECIALIDADES DE LA CASA */}
-      <FeaturedItems />
+      {/* 🔥 ESPECIALIDADES CON SUSPENSE */}
+      <Suspense fallback={
+        <section className="py-12 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-center text-blue-900 mb-8">
+              Nuestras <span className="text-orange-500">Especialidades</span>
+            </h2>
+            <div className="flex justify-center items-center py-8">
+              <div className="text-center">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-4 border-orange-500 mx-auto mb-3"></div>
+                <span className="text-lg text-blue-900 font-medium">Cargando especialidades...</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      }>
+        <FeaturedItems />
+      </Suspense>
 
       {/* Por qué elegirnos */}
       <section className="py-16 bg-gradient-to-r from-blue-800 to-blue-900 text-white">
