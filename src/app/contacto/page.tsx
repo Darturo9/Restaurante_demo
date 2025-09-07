@@ -1,6 +1,5 @@
 'use client'
 import { useState } from 'react'
-import MapComponent from '@/components/MapComponent'
 
 export default function ContactoPage() {
     const [formData, setFormData] = useState({
@@ -26,14 +25,6 @@ export default function ContactoPage() {
         console.log('Datos del formulario:', formData)
     }
 
-    // Coordenadas del restaurante en Guatemala City (Zona 1)
-    const restaurantData = {
-        lat: 14.6349,    // Latitud Guatemala City Centro
-        lng: -90.5069,   // Longitud Guatemala City Centro
-        name: "Danilo's Burger",
-        address: "6a Calle 3-45, Zona 1, Guatemala City, Guatemala"
-    }
-
     return (
         <main className="min-h-screen">
             {/* Hero Section */}
@@ -56,9 +47,9 @@ export default function ContactoPage() {
                             <div className="text-4xl mb-4">📍</div>
                             <h3 className="text-xl font-semibold text-blue-900 mb-2">Ubicación</h3>
                             <p className="text-gray-600">
-                                6a Calle 3-45, Zona 1<br />
-                                Guatemala City<br />
-                                Guatemala, CP 01001
+                                Av. de las Hamburguesas 456<br />
+                                Colonia Centro<br />
+                                Ciudad, CP 12345
                             </p>
                         </div>
 
@@ -66,9 +57,9 @@ export default function ContactoPage() {
                             <div className="text-4xl mb-4">📞</div>
                             <h3 className="text-xl font-semibold text-blue-900 mb-2">Teléfono</h3>
                             <p className="text-gray-600">
-                                Pedidos: +502 2234-5678<br />
-                                WhatsApp: +502 5558-0173<br />
-                                General: +502 2234-5679
+                                Pedidos: (555) BURGER-1<br />
+                                WhatsApp: (502) 55580173<br />
+                                General: (555) 123-4569
                             </p>
                         </div>
 
@@ -145,7 +136,7 @@ export default function ContactoPage() {
                                         value={formData.telefono}
                                         onChange={handleChange}
                                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                                        placeholder="+502 1234-5678"
+                                        placeholder="(555) 123-4567"
                                     />
                                 </div>
 
@@ -244,24 +235,12 @@ export default function ContactoPage() {
                 </div>
             </section>
 
-            {/* Ubicación y Entrega con Mapa Real */}
+            {/* Métodos de Entrega */}
             <section className="py-16 bg-white">
                 <div className="container mx-auto px-4">
-                    <div className="text-center mb-12">
-                        <h2 className="text-4xl font-bold text-blue-900 mb-4">
-                            Nuestra <span className="text-orange-500">Ubicación</span>
-                        </h2>
-                        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                            Fácil de encontrar en el corazón de Guatemala City.
-                            ¡Usa el mapa para navegación directa!
-                        </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         <div>
-                            <h3 className="text-2xl font-bold text-blue-900 mb-6">
-                                Opciones de <span className="text-orange-500">Entrega</span>
-                            </h3>
+                            <h2 className="text-3xl font-bold text-blue-900 mb-6">Opciones de <span className="text-orange-500">Entrega</span></h2>
                             <div className="space-y-4 text-gray-600">
                                 <p>
                                     <strong>🏪 Recoger en Tienda:</strong> Listo en 15 minutos.
@@ -278,23 +257,23 @@ export default function ContactoPage() {
                             </div>
 
                             <div className="mt-8 p-6 bg-gradient-to-r from-orange-50 to-blue-50 rounded-lg border-2 border-orange-200">
-                                <h4 className="font-semibold text-blue-900 mb-2">💡 Consejos para tu Pedido</h4>
+                                <h3 className="font-semibold text-blue-900 mb-2">💡 Consejos para tu Pedido</h3>
                                 <ul className="text-sm text-gray-600 space-y-1">
                                     <li>• Ordena con tiempo en horas pico (12-2pm, 7-9pm)</li>
-                                    <li>• Delivery gratis en pedidos mayores a Q200</li>
+                                    <li>• Delivery gratis en pedidos mayores a $25</li>
                                     <li>• Aceptamos efectivo y todas las tarjetas</li>
                                     <li>• Combos especiales disponibles</li>
                                 </ul>
                             </div>
                         </div>
 
-                        {/* Mapa Real Interactivo */}
-                        <MapComponent
-                            lat={restaurantData.lat}
-                            lng={restaurantData.lng}
-                            name={restaurantData.name}
-                            address={restaurantData.address}
-                        />
+                        <div className="bg-gradient-to-r from-blue-600 to-blue-800 rounded-lg h-64 lg:h-96 flex items-center justify-center">
+                            <div className="text-center text-white">
+                                <div className="text-4xl mb-2">🗺️</div>
+                                <p className="font-semibold">Ubicación</p>
+                                <p className="text-sm opacity-90">(Aquí iría el mapa real)</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
