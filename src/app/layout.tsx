@@ -47,25 +47,26 @@ export default function RootLayout({
         {/* PWA Meta Tags */}
         <meta name="application-name" content="Danilo's Burger" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="apple-mobile-web-app-title" content="Danilo's Burger" />
-        <meta
-          name="description"
-          content="La mejor experiencia gastronómica de Guatemala"
-        />
+        <meta name="description" content="La mejor experiencia gastronómica de Guatemala" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="mobile-web-app-capable" content="yes" />
-        <meta name="msapplication-config" content="/icons/browserconfig.xml" />
-        <meta name="msapplication-TileColor" content="#1e40af" />
-        <meta name="msapplication-tap-highlight" content="no" />
         <meta name="theme-color" content="#f97316" />
 
-        {/* Apple Touch Icons */}
+        {/* Apple Touch Icons - específicos para iOS */}
         <link rel="apple-touch-icon" href="/icon-512x512.png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="/icon-512x512.png" />
+        <link rel="apple-touch-icon" sizes="60x60" href="/icon-512x512.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="/icon-512x512.png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="/icon-512x512.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="/icon-512x512.png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="/icon-512x512.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="/icon-512x512.png" />
         <link rel="apple-touch-icon" sizes="152x152" href="/icon-512x512.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/icon-512x512.png" />
 
-        {/* Favicon */}
+        {/* Favicons */}
         <link rel="icon" type="image/png" sizes="32x32" href="/icon-512x512.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/icon-512x512.png" />
         <link rel="manifest" href="/manifest.json" />
