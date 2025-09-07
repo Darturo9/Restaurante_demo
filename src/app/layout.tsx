@@ -1,12 +1,17 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import Script from 'next/script'
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsappButton";  // 🔥 AGREGAR ESTA LÍNEA
+import { GA_TRACKING_ID } from '@/lib/gtag'
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Danilo's Burger - Restaurante Gourmet",
-  description:
-    "La mejor experiencia gastronómica de Guatemala. Hamburguesas gourmet, alitas, camarones y más. Pedidos online y delivery.",
+  description: "La mejor experiencia gastronómica de Guatemala. Hamburguesas gourmet, alitas, camarones y más. Pedidos online y delivery.",
   keywords: "restaurante, hamburguesas, Guatemala, delivery, comida gourmet",
   authors: [{ name: "Danilo's Burger" }],
   creator: "Danilo's Burger",
@@ -16,11 +21,10 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  // PWA Metadata
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
-    statusBarStyle: "default",
+    statusBarStyle: "black-translucent",
     title: "Danilo's Burger",
   },
   openGraph: {
@@ -54,7 +58,7 @@ export default function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="theme-color" content="#f97316" />
 
-        {/* Apple Touch Icons - específicos para iOS */}
+        {/* Apple Touch Icons */}
         <link rel="apple-touch-icon" href="/icon-512x512.png" />
         <link rel="apple-touch-icon" sizes="57x57" href="/icon-512x512.png" />
         <link rel="apple-touch-icon" sizes="60x60" href="/icon-512x512.png" />
@@ -72,10 +76,33 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
         <link rel="shortcut icon" href="/favicon.ico" />
       </head>
-      <body className="antialiased">
+      <body className={inter.className}>
+        {/* Google Analytics */}
+        <Script
+          strategy="afterInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GA_TRACKING_ID}', {
+                page_path: window.location.pathname,
+              });
+            `,
+          }}
+        />
+
         <Header />
         {children}
         <Footer />
+
+        {/* 🔥 AGREGAR WHATSAPP BUTTON GLOBAL */}
+        <WhatsAppButton />
       </body>
     </html>
   );

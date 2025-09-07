@@ -1,9 +1,12 @@
 'use client'
+
 import InstallPWA from '@/components/InstallPWA'
-import WhatsAppButton from '@/components/WhatsappButton'
+import { trackWhatsAppClick } from '@/lib/gtag'
 
 export default function Home() {
   const handleWhatsAppClick = () => {
+    trackWhatsAppClick('hero_section')
+
     const phoneNumber = "50255580173"
     const message = "¡Hola! Me gustaría hacer un pedido en Danilo´s Burger 🍔"
     const encodedMessage = encodeURIComponent(message)
@@ -17,25 +20,37 @@ export default function Home() {
 
   return (
     <main className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center bg-gradient-to-r from-blue-600 via-blue-700 to-blue-900">
-        <div className="text-center space-y-6 px-4">
-          <h1 className="text-5xl md:text-7xl font-bold text-white">
+      {/* 🔥 Hero Section con imagen de fondo */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        {/* 🔥 IMAGEN DE FONDO */}
+        <div
+          className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0"
+          style={{
+            backgroundImage: 'url("/images/burger-hero.jpg")'  // 🔥 CAMBIAR NOMBRE DE TU IMAGEN
+          }}
+        ></div>
+
+        {/* 🔥 OVERLAY OSCURO PARA LEGIBILIDAD DEL TEXTO */}
+        <div className="absolute inset-0 bg-black/50 z-10"></div>
+
+        {/* 🔥 CONTENIDO ENCIMA DE LA IMAGEN */}
+        <div className="relative z-20 text-center space-y-6 px-4">
+          <h1 className="text-5xl md:text-7xl font-bold text-white drop-shadow-2xl">
             Danilo´s <span className="text-orange-400">Burger</span>
           </h1>
-          <p className="text-xl md:text-2xl text-blue-100 max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl text-white max-w-2xl mx-auto drop-shadow-lg">
             Las mejores hamburguesas artesanales, alitas crujientes y camarones frescos en un solo lugar
           </p>
           <div className="space-x-4">
             <button
               onClick={handleMenuClick}
-              className="bg-gradient-to-r from-orange-500 to-orange-400 text-white px-8 py-3 rounded-lg text-lg font-bold hover:from-orange-400 hover:to-orange-300 transition-all shadow-lg"
+              className="bg-gradient-to-r from-orange-500 to-orange-400 text-white px-8 py-3 rounded-lg text-lg font-bold hover:from-orange-400 hover:to-orange-300 transition-all shadow-2xl hover:scale-105"
             >
               Ver Menú
             </button>
             <button
               onClick={handleWhatsAppClick}
-              className="border-2 border-orange-400 text-orange-400 px-8 py-3 rounded-lg text-lg font-bold hover:bg-orange-400 hover:text-white transition-all"
+              className="border-2 border-orange-400 text-orange-400 px-8 py-3 rounded-lg text-lg font-bold hover:bg-orange-400 hover:text-white transition-all backdrop-blur-sm bg-white/10"
             >
               Pedir Ahora
             </button>
@@ -54,19 +69,19 @@ export default function Home() {
               {
                 name: "Burger Clásica",
                 description: "Carne de res angus, queso cheddar, lechuga, tomate y salsa especial",
-                price: "$12.99",
+                price: "Q89",  // 🔥 CAMBIAR DE $ A Q
                 image: "🍔"
               },
               {
                 name: "Alitas BBQ",
                 description: "12 alitas crujientes bañadas en nuestra salsa BBQ secreta",
-                price: "$15.99",
+                price: "Q125", // 🔥 CAMBIAR DE $ A Q
                 image: "🍗"
               },
               {
                 name: "Camarones Empanizados",
                 description: "Camarones jumbo empanizados con salsa tártara casera",
-                price: "$18.99",
+                price: "Q150", // 🔥 CAMBIAR DE $ A Q
                 image: "🍤"
               }
             ].map((item, index) => (
@@ -120,9 +135,6 @@ export default function Home() {
           </button>
         </div>
       </section>
-
-      {/* WhatsApp Button Component */}
-      <WhatsAppButton />
 
       {/* PWA Install Component */}
       <InstallPWA />

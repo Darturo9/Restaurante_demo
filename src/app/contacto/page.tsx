@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import MapComponent from '@/components/MapComponent'
+import { trackFormSubmit } from '@/lib/gtag'  // 🔥 AGREGAR ESTA LÍNEA
 
 export default function ContactoPage() {
     const [formData, setFormData] = useState({
@@ -24,6 +25,9 @@ export default function ContactoPage() {
     }
 
     const enviarWhatsApp = () => {
+        // 🔥 AGREGAR TRACKING ANTES DE ENVIAR
+        trackFormSubmit('pedido_whatsapp')
+
         const mensaje = `🍔 Pedido Danilo's Burger\n\n` +
             `👤 Cliente: ${formData.nombre}\n` +
             `📱 Teléfono: ${formData.telefono}\n` +

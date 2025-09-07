@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { trackPWAInstall } from '@/lib/gtag'  // 🔥 AGREGAR
 
 export default function InstallPWA() {
     const [showInstallButton, setShowInstallButton] = useState(false)
@@ -41,6 +42,9 @@ export default function InstallPWA() {
 
     const handleInstallClick = async () => {
         if (deferredPrompt) {
+            // 🔥 AGREGAR TRACKING
+            trackPWAInstall()
+
             // Android/Chrome
             try {
                 deferredPrompt.prompt()
@@ -62,7 +66,7 @@ export default function InstallPWA() {
     if (typeof window === 'undefined' || isStandalone || !showInstallButton) return null
 
     return (
-        <div className="fixed bottom-4 right-4 z-50 max-w-sm">
+        <div className="fixed bottom-20 right-4 z-50 max-w-sm">  {/* bottom-20 para estar arriba del WhatsApp */}
             <div className="bg-gradient-to-r from-orange-500 to-orange-600 text-white p-4 rounded-lg shadow-lg">
                 <div className="flex items-start space-x-3">
                     <div className="text-2xl">📱</div>
@@ -84,7 +88,7 @@ export default function InstallPWA() {
                         ) : (
                             // Para Android/Chrome
                             <p className="text-xs opacity-90 mb-3">
-                                Accede rápido y mira nuestro menú desde la pantalla de inicio
+                                Accede rápido, recibe ofertas y haz pedidos desde tu pantalla de inicio
                             </p>
                         )}
 
