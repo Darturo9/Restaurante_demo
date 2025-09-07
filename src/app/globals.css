@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+:root {
+  --primary-black: #000000;
+  --primary-gold: #D4AF37;
+  --primary-orange: #FF8C00;
+  --secondary-gold: #F7DC6F;
+  --secondary-orange: #FFA500;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+}
+
+.bg-brand-black { background-color: var(--primary-black); }
+.bg-brand-gold { background-color: var(--primary-gold); }
+.bg-brand-orange { background-color: var(--primary-orange); }
+.text-brand-gold { color: var(--primary-gold); }
+.text-brand-orange { color: var(--primary-orange); }
