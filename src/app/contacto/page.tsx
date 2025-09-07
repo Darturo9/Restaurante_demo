@@ -19,10 +19,15 @@ export default function ContactoPage() {
         })
     }
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault()
-        alert('¡Gracias! Tu pedido ha sido enviado. Te contactaremos pronto.')
-        console.log('Datos del formulario:', formData)
+    const enviarWhatsApp = () => {
+        const mensaje = `🍔 Pedido Danilo's Burger\n\n` +
+            `👤 Cliente: ${formData.nombre}\n` +
+            `📱 Teléfono: ${formData.telefono}\n` +
+            `📅 Fecha: ${formData.fecha} a las ${formData.hora}\n` +
+            `👥 Para: ${formData.personas} personas\n\n` +
+            `📝 Pedido:\n${formData.mensaje}`
+
+        window.open(`https://wa.me/50255580173?text=${encodeURIComponent(mensaje)}`)
     }
 
     return (
@@ -88,7 +93,7 @@ export default function ContactoPage() {
                         </div>
 
                         <div className="bg-white rounded-lg shadow-lg p-8 border-2 border-blue-200">
-                            <form onSubmit={handleSubmit} className="space-y-6">
+                            <form onSubmit={enviarWhatsApp} className="space-y-6">
                                 {/* Información Personal */}
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div>

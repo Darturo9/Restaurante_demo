@@ -2,7 +2,7 @@
 
 export default function WhatsAppButton() {
     const phoneNumber = "50255580173" // Tu número de WhatsApp (sin signos + ni espacios)
-    const message = "¡Hola! Me gustaría hacer una reserva en Restaurante Delizia 🍽️"
+    const message = "¡Hola! Me gustaría hacer una reserva en Restaurante Danilo´s Burger 🍽️"
 
     const handleWhatsAppClick = () => {
         const encodedMessage = encodeURIComponent(message)
