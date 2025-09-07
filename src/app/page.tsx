@@ -1,6 +1,7 @@
 'use client'
 
 import InstallPWA from '@/components/InstallPWA'
+import FeaturedItems from '@/components/FeaturedItems'  // 🔥 CAMBIAR A SOLO DESTACADOS
 import { trackWhatsAppClick } from '@/lib/gtag'
 
 export default function Home() {
@@ -20,20 +21,15 @@ export default function Home() {
 
   return (
     <main className="min-h-screen">
-      {/* 🔥 Hero Section con imagen de fondo */}
+      {/* Hero Section con imagen de fondo */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        {/* 🔥 IMAGEN DE FONDO */}
         <div
           className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0"
           style={{
-            backgroundImage: 'url("/images/burger-hero.jpg")'  // 🔥 CAMBIAR NOMBRE DE TU IMAGEN
+            backgroundImage: 'url("/images/burger-hero.jpg")'
           }}
         ></div>
-
-        {/* 🔥 OVERLAY OSCURO PARA LEGIBILIDAD DEL TEXTO */}
         <div className="absolute inset-0 bg-black/50 z-10"></div>
-
-        {/* 🔥 CONTENIDO ENCIMA DE LA IMAGEN */}
         <div className="relative z-20 text-center space-y-6 px-4">
           <h1 className="text-5xl md:text-7xl font-bold text-white drop-shadow-2xl">
             Danilo´s <span className="text-orange-400">Burger</span>
@@ -58,43 +54,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Especialidades */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center text-blue-900 mb-12">
-            Nuestras <span className="text-orange-500">Especialidades</span>
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                name: "Burger Clásica",
-                description: "Carne de res angus, queso cheddar, lechuga, tomate y salsa especial",
-                price: "Q89",  // 🔥 CAMBIAR DE $ A Q
-                image: "🍔"
-              },
-              {
-                name: "Alitas BBQ",
-                description: "12 alitas crujientes bañadas en nuestra salsa BBQ secreta",
-                price: "Q125", // 🔥 CAMBIAR DE $ A Q
-                image: "🍗"
-              },
-              {
-                name: "Camarones Empanizados",
-                description: "Camarones jumbo empanizados con salsa tártara casera",
-                price: "Q150", // 🔥 CAMBIAR DE $ A Q
-                image: "🍤"
-              }
-            ].map((item, index) => (
-              <div key={index} className="bg-white rounded-lg p-6 text-center hover:shadow-xl transition-all border-2 border-blue-200 hover:border-orange-400">
-                <div className="text-6xl mb-4">{item.image}</div>
-                <h3 className="text-xl font-semibold text-blue-900 mb-2">{item.name}</h3>
-                <p className="text-gray-600 mb-4">{item.description}</p>
-                <div className="text-2xl font-bold text-orange-500">{item.price}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* 🔥 SOLO ESPECIALIDADES DE LA CASA */}
+      <FeaturedItems />
 
       {/* Por qué elegirnos */}
       <section className="py-16 bg-gradient-to-r from-blue-800 to-blue-900 text-white">
@@ -136,7 +97,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PWA Install Component */}
       <InstallPWA />
     </main>
   );
