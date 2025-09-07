@@ -1,5 +1,6 @@
 'use client'
 import InstallPWA from '@/components/InstallPWA'
+import WhatsAppButton from '@/components/WhatsappButton'
 
 export default function Home() {
   const handleWhatsAppClick = () => {
@@ -119,6 +120,9 @@ export default function Home() {
           </button>
         </div>
       </section>
+
+      {/* WhatsApp Button Component */}
+      <WhatsAppButton />
 
       {/* PWA Install Component */}
       <InstallPWA />

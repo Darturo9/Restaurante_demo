@@ -84,7 +84,7 @@ export default function InstallPWA() {
                         ) : (
                             // Para Android/Chrome
                             <p className="text-xs opacity-90 mb-3">
-                                Accede rápido, recibe ofertas y haz pedidos desde tu pantalla de inicio
+                                Accede rápido y mira nuestro menú desde la pantalla de inicio
                             </p>
                         )}
 
