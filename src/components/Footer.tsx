@@ -26,17 +26,6 @@ export default function Footer() {
                             Las mejores hamburguesas, alitas crujientes y camarones frescos.
                             Desde 2015 sirviendo felicidad en cada bocado.
                         </p>
-                        <div className="flex space-x-4">
-                            <span className="text-2xl cursor-pointer hover:text-orange-400 transition-colors">📘</span>
-                            <span className="text-2xl cursor-pointer hover:text-orange-400 transition-colors">📷</span>
-                            <span className="text-2xl cursor-pointer hover:text-orange-400 transition-colors">🐦</span>
-                            <button
-                                onClick={handleWhatsAppClick}
-                                className="text-2xl cursor-pointer hover:text-green-400 transition-colors"
-                            >
-                                💬
-                            </button>
-                        </div>
                     </div>
 
                     {/* Enlaces */}
